@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wh.dao.mapper.SysAreaMapper">
+	<resultMap type="SysArea" id="SysAreaResult">
+		<id column="area_id" property="areaId" />
+		<result column="area_name" property="areaName" />
+		<result column="map_id" property="mapId" />
+		<result column="dis_order" property="disOrder" />
+		<result column="parent_id" property="parentId" />
+	</resultMap>
+		<select id="selectAreaByParentId" resultMap="SysAreaResult">
+			select * from lh_area where parent_id=#{parentId}
+		</select>
+</mapper>
